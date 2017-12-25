@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>WechatSound</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<style>
+
+
+
+</style>
+<body>
+<div id="app">
+</div>
+<script src="dist/wechat-sound.js"></script>
+<script>
+    var audio=new Audio();
+    audio.src='background.mp3'
+    setTimeout(function () {
+       //console.log('ok')
+        audio.play();
+    },3000);
+</script>
+</body>
+</html>
