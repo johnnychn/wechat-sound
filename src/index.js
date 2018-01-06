@@ -1,11 +1,15 @@
 /**
  * Created by johnny on 2017/12/25.
  */
-void function (win, doc, undefined) {
+ function WechatSound(doc) {
     // 原理：调用链中的某个事件被标识为用户事件而非系统事件
     // 进而导致浏览器以为是用户触发播放而允许播放
+
+
     Audio.prototype._play = Audio.prototype.play;
     HTMLAudioElement.prototype._play = HTMLAudioElement.prototype.play;
+    //Video.prototype._play = Video.prototype.play;
+    HTMLVideoElement.prototype._play=HTMLVideoElement.prototype.play;
     function wxPlayAudio(audio) {
         /// <summary>
         /// 微信播放Hack
@@ -22,7 +26,6 @@ void function (win, doc, undefined) {
         var evtFns = [];
         try {
             wxPlayAudio(self);
-            return;
         } catch (ex) {
             evtFns.push("WeixinJSBridgeReady", function evt() {
                 wxPlayAudio(self);
@@ -34,4 +37,8 @@ void function (win, doc, undefined) {
 
     Audio.prototype.play = play;
     HTMLAudioElement.prototype.play = play;
-}(window, document);
+    HTMLVideoElement.prototype.play=play;
+}
+module.exports=WechatSound;
+ window.WechatSound=WechatSound;
+//WechatSound(document);
