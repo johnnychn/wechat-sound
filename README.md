@@ -16,5 +16,15 @@ import WechatSound from 'wechat-sound'
 
 ### Usage
 ```javascript
-  WechatSound(document)
+  var ws=new WechatSound(document)
+  
+  //加入预加载视频和音频功能
+  ws.preloadVideo()
+  ws.preloadAudio();
+  
+  
+  
+  //视频只有IOS能用哦
+  
+  
 ```
