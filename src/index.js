@@ -85,6 +85,8 @@ WechatSound.prototype.preloadAudio = function (url, playtime) {
     videoObj.play();
 };
 WechatSound(document);
-module.exports = WechatSound;
+if(module){
+    module.exports = WechatSound;
+}
 window.WechatSound = WechatSound;
 //WechatSound(document);
